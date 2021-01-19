@@ -55,8 +55,12 @@ add_subdirectory(soundtouch)
 
 # Cubeb
 if(ENABLE_CUBEB)
-    set(BUILD_TESTS OFF CACHE BOOL "")
-    add_subdirectory(cubeb EXCLUDE_FROM_ALL)
+    if (NOT USE_SYSTEM_CUBEB)
+        set(BUILD_TESTS OFF CACHE BOOL "")
+        add_subdirectory(cubeb EXCLUDE_FROM_ALL)
+    else()
+        find_package(cubeb REQUIRED)
+    endif()
 endif()
 
 # DiscordRPC

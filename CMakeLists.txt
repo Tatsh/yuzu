@@ -28,6 +28,7 @@ option(USE_DISCORD_PRESENCE "Enables Discord Rich Presence" OFF)
 
 option(USE_SYSTEM_OPUS "Enable system opus" OFF)
 option(USE_SYSTEM_INIH "Enable system inih" OFF)
+option(USE_SYSTEM_CUBEB "Enable system cubeb" OFF)
 
 if (NOT ENABLE_WEB_SERVICE)
     set(YUZU_ENABLE_BOXCAT OFF)
