@@ -5,7 +5,7 @@
 #include <memory>
 #include <sstream>
 #include <SDL.h>
-#include <inih/cpp/INIReader.h>
+#include <INIReader.h>
 #include "common/file_util.h"
 #include "common/logging/log.h"
 #include "common/param_package.h"
