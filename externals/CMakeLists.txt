@@ -1,4 +1,5 @@
 # Definitions for all external bundled libraries
+include(FindPkgConfig)
 
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/CMakeModules")
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/externals/find-modules")
@@ -31,7 +32,11 @@ endif()
 add_subdirectory(glad)
 
 # inih
-add_subdirectory(inih)
+if (NOT USE_SYSTEM_INIH)
+    add_subdirectory(inih)
+else()
+    pkg_check_modules(INIH REQUIRED inih INIReader)
+endif()
 
 # mbedtls
 add_subdirectory(mbedtls EXCLUDE_FROM_ALL)
@@ -97,4 +102,8 @@ if (ENABLE_WEB_SERVICE)
 endif()
 
 # Opus
-add_subdirectory(opus)
+if (NOT USE_SYSTEM_OPUS)
+    add_subdirectory(opus)
+else()
+    pkg_check_modules(OPUS REQUIRED opus)
+endif()

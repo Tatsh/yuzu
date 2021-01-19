@@ -677,3 +677,8 @@ if (ARCHITECTURE_x86_64)
     )
     target_link_libraries(core PRIVATE dynarmic)
 endif()
+
+if (USE_SYSTEM_OPUS)
+    find_path(OPUS_H_PATH opus.h PATH_SUFFIXES opus)
+    target_include_directories(core PUBLIC ${OPUS_H_PATH})
+endif()

@@ -26,6 +26,9 @@ option(ENABLE_CUBEB "Enables the cubeb audio backend" ON)
 
 option(USE_DISCORD_PRESENCE "Enables Discord Rich Presence" OFF)
 
+option(USE_SYSTEM_OPUS "Enable system opus" OFF)
+option(USE_SYSTEM_INIH "Enable system inih" OFF)
+
 if (NOT ENABLE_WEB_SERVICE)
     set(YUZU_ENABLE_BOXCAT OFF)
 endif()
@@ -417,7 +420,7 @@ elseif (WIN32)
         set(PLATFORM_LIBRARIES ${PLATFORM_LIBRARIES} psapi imm32 version)
     endif()
 elseif (CMAKE_SYSTEM_NAME MATCHES "^(Linux|kFreeBSD|GNU|SunOS)$")
-    set(PLATFORM_LIBRARIES rt)
+    set(PLATFORM_LIBRARIES ${PLATFORM_LIBRARIES} rt)
 endif()
 
 # Setup a custom clang-format target (if clang-format can be found) that will run
