@@ -307,8 +307,10 @@ const char* ToString(VkResult result) noexcept {
         return "VK_ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT";
     case VkResult::VK_ERROR_UNKNOWN:
         return "VK_ERROR_UNKNOWN";
+#if VK_HEADER_VERSION >= 135 && VK_HEADER_VERSION < 162
     case VkResult::VK_ERROR_INCOMPATIBLE_VERSION_KHR:
         return "VK_ERROR_INCOMPATIBLE_VERSION_KHR";
+#endif
     case VkResult::VK_THREAD_IDLE_KHR:
         return "VK_THREAD_IDLE_KHR";
     case VkResult::VK_THREAD_DONE_KHR:
