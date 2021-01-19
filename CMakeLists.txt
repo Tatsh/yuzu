@@ -199,7 +199,7 @@ macro(yuzu_find_packages)
     unset(FN_FORCE_REQUIRED)
 endmacro()
 
-find_package(Boost 1.73.0 COMPONENTS context headers QUIET)
+find_package(Boost 1.73.0 COMPONENTS context)
 if (Boost_FOUND)
     set(Boost_LIBRARIES Boost::boost)
     # Conditionally add Boost::context only if the active version of the Conan or system Boost package provides it
